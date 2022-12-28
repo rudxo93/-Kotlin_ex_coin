@@ -10,9 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("MainActivity", "onCreate")
         Timber.d("onCreate")
-        Timber.tag("MainActivity").d("onCreate")
-        Timber.tag("MainActivity").e("onCreate")
     }
 }
