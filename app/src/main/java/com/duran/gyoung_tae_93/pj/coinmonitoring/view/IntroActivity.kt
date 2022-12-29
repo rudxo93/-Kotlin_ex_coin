@@ -1,8 +1,9 @@
-package com.duran.gyoung_tae_93.pj.coinmonitoring
+package com.duran.gyoung_tae_93.pj.coinmonitoring.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.duran.gyoung_tae_93.pj.coinmonitoring.R
 import timber.log.Timber
 
 // Splash 화면 만들기
