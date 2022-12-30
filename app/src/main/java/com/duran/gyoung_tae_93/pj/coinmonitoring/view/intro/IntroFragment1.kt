@@ -1,4 +1,4 @@
-package com.duran.gyoung_tae_93.pj.coinmonitoring.view
+package com.duran.gyoung_tae_93.pj.coinmonitoring.view.intro
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.duran.gyoung_tae_93.pj.coinmonitoring.view
+package com.duran.gyoung_tae_93.pj.coinmonitoring.view.intro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
