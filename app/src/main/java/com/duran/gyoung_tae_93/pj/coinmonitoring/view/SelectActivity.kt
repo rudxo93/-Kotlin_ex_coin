@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.duran.gyoung_tae_93.pj.coinmonitoring.R
 import com.duran.gyoung_tae_93.pj.coinmonitoring.databinding.ActivitySelectBinding
+import com.duran.gyoung_tae_93.pj.coinmonitoring.view.adapter.SelectRVAdapter
 import timber.log.Timber
 
 // 가상화폐 현재가 조회
@@ -13,14 +15,25 @@ import timber.log.Timber
 
 class SelectActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivitySelectBinding
+
     private val viewModel : SelectViewModel by viewModels()
+
+    private lateinit var selectRVAdapter: SelectRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select)
+        binding = ActivitySelectBinding.inflate(layoutInflater, )
+        setContentView(binding.root)
 
         viewModel.getCurrentCoinList()
         viewModel.currentPriceResult.observe(this, Observer {
+
+            selectRVAdapter = SelectRVAdapter(this, it)
+            // binding
+            binding.coinListRV.adapter = selectRVAdapter
+            binding.coinListRV.layoutManager = LinearLayoutManager(this)
+
             Timber.d(it.toString())
         })
 
