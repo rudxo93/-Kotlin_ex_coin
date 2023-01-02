@@ -1,10 +1,12 @@
 package com.duran.gyoung_tae_93.pj.coinmonitoring.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.duran.gyoung_tae_93.pj.coinmonitoring.MainActivity
 import com.duran.gyoung_tae_93.pj.coinmonitoring.R
 import com.duran.gyoung_tae_93.pj.coinmonitoring.databinding.ActivitySelectBinding
 import com.duran.gyoung_tae_93.pj.coinmonitoring.view.adapter.SelectRVAdapter
@@ -36,6 +38,11 @@ class SelectActivity : AppCompatActivity() {
 
             Timber.d(it.toString())
         })
+
+        binding.laterTextArea.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
