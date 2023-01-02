@@ -11,18 +11,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.duran.gyoung_tae_93.pj.coinmonitoring.R
 import com.duran.gyoung_tae_93.pj.coinmonitoring.dataModel.CurrentPriceResult
 
-class SelectRVAdapter(val context: Context, val coinPriceList : List<CurrentPriceResult>)
-    : RecyclerView.Adapter<SelectRVAdapter.ViewHolder>() {
+class SelectRVAdapter(val context: Context, val coinPriceList: List<CurrentPriceResult>) :
+    RecyclerView.Adapter<SelectRVAdapter.ViewHolder>() {
 
-        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val coinName: TextView = view.findViewById(R.id.coinName)
-            val coinPriceUpDown: TextView = view.findViewById(R.id.coinPriceUpDown)
-            val likeImage: ImageView = view.findViewById(R.id.likeBtn)
-        }
+    val selectedCoinList = ArrayList<String>()
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val coinName: TextView = view.findViewById(R.id.coinName)
+        val coinPriceUpDown: TextView = view.findViewById(R.id.coinPriceUpDown)
+        val likeImage: ImageView = view.findViewById(R.id.likeBtn)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.intro_coin_item, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.intro_coin_item, parent, false)
 
         return ViewHolder(view)
 
@@ -34,12 +37,34 @@ class SelectRVAdapter(val context: Context, val coinPriceList : List<CurrentPric
 
         val fluctate_24H = coinPriceList[position].coinInfo.fluctate_24H
 
-        if(fluctate_24H.contains("-")) {
+        if (fluctate_24H.contains("-")) {
             holder.coinPriceUpDown.text = "하락입니다."
             holder.coinPriceUpDown.setTextColor(Color.parseColor("#114fed"))
         } else {
             holder.coinPriceUpDown.text = "상승입니다."
             holder.coinPriceUpDown.setTextColor(Color.parseColor("#ed2e11"))
+        }
+
+        val likeImage = holder.likeImage
+        val currentCoin = coinPriceList[position].coinName
+
+        // view 를 그려줄 때
+        if(selectedCoinList.contains(currentCoin)) {
+            likeImage.setImageResource(R.drawable.like_red)
+        } else {
+            likeImage.setImageResource(R.drawable.like_grey)
+        }
+
+        likeImage.setOnClickListener {
+            if (selectedCoinList.contains(currentCoin)) {
+                // 포함하면
+                selectedCoinList.remove(currentCoin)
+                likeImage.setImageResource(R.drawable.like_grey)
+            } else {
+                // 포함하지 않으면
+                selectedCoinList.add(currentCoin)
+                likeImage.setImageResource(R.drawable.like_red)
+            }
         }
 
     }
