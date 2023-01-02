@@ -1,10 +1,14 @@
 package com.duran.gyoung_tae_93.pj.coinmonitoring.view.intro
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.duran.gyoung_tae_93.pj.coinmonitoring.R
+import androidx.lifecycle.Observer
+import com.duran.gyoung_tae_93.pj.coinmonitoring.MainActivity
+import com.duran.gyoung_tae_93.pj.coinmonitoring.databinding.ActivityIntroBinding
 import timber.log.Timber
 
 // Splash 화면 만들기
@@ -13,18 +17,32 @@ import timber.log.Timber
 
 class IntroActivity : AppCompatActivity() {
 
-    private val viewModel : IntroViewModel by viewModels()
+    private lateinit var binding: ActivityIntroBinding
+    private val viewModel: IntroViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         installSplashScreen()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro)
+        binding = ActivityIntroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Timber.d("onCreate")
 
         viewModel.checkFirstFlag()
+        viewModel.first.observe(this, Observer {
+
+            if (it) {
+                // 처음 접속하는 유저가 아님(true)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            } else {
+                // 처음 접속하는 유저(false)
+                binding.fragmentContainerView.visibility = View.VISIBLE
+            }
+
+        })
 
     }
 }
