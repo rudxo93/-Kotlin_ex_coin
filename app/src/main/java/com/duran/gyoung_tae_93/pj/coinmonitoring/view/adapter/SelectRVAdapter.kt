@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.duran.gyoung_tae_93.pj.coinmonitoring.R
 import com.duran.gyoung_tae_93.pj.coinmonitoring.dataModel.CurrentPriceResult
+import timber.log.Timber
 
 class SelectRVAdapter(val context: Context, val coinPriceList: List<CurrentPriceResult>) :
     RecyclerView.Adapter<SelectRVAdapter.ViewHolder>() {
@@ -65,6 +66,8 @@ class SelectRVAdapter(val context: Context, val coinPriceList: List<CurrentPrice
                 selectedCoinList.add(currentCoin)
                 likeImage.setImageResource(R.drawable.like_red)
             }
+
+            Timber.d(selectedCoinList.toString())
         }
 
     }
