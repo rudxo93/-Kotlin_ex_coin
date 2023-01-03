@@ -1,10 +1,12 @@
 package com.duran.gyoung_tae_93.pj.coinmonitoring.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.duran.gyoung_tae_93.pj.coinmonitoring.MainActivity
 import com.duran.gyoung_tae_93.pj.coinmonitoring.databinding.ActivitySelectBinding
 import com.duran.gyoung_tae_93.pj.coinmonitoring.view.adapter.SelectRVAdapter
 import timber.log.Timber
@@ -42,9 +44,20 @@ class SelectActivity : AppCompatActivity() {
             viewModel.setUpFirstFlag()
             viewModel.saveSelectedCoinList(selectRVAdapter.selectedCoinList)
 
-            /*val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)*/
         }
+
+        /*
+            만약 코인이 100만개라면 어떻게 할꺼임?
+            메인에서 저장된 코인을 이용하는 로직이 있을수도 있는데 그럼 10만개만 저장이 되었는데 나머지 90만개는
+            저장이 안됐는데 그럼 원하는 형태로 로직 구현이 안될텐데????
+            -> 100만개를 다 저장되고 난 다음에 MainActivity로 넘겨주는 것을 해야한다!
+            */
+        viewModel.save.observe(this, Observer {
+            if(it.equals("done")) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        })
 
     }
 

@@ -13,6 +13,7 @@ import com.duran.gyoung_tae_93.pj.coinmonitoring.repository.NetworkRepository
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class SelectViewModel : ViewModel() {
@@ -26,6 +27,10 @@ class SelectViewModel : ViewModel() {
     private val _currentPriceResult = MutableLiveData<List<CurrentPriceResult>>()
     val currentPriceResult : LiveData<List<CurrentPriceResult>>
         get() = _currentPriceResult
+
+    private val _saved = MutableLiveData<String>()
+    val save : LiveData<String>
+        get() = _saved
 
     fun getCurrentCoinList() = viewModelScope.launch {
 
@@ -92,6 +97,10 @@ class SelectViewModel : ViewModel() {
                 dbRepository.insertInterestCoinData(it)
             }
 
+        }
+
+        withContext(Dispatchers.Main) {
+            _saved.value = "done"
         }
     }
 
