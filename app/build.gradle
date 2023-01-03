@@ -55,9 +55,11 @@ dependencies {
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    //coroutine
+    // coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    //datastore
+    // datastore
     implementation 'androidx.datastore:datastore-preferences:1.0.0'
+    // Lottie
+    implementation 'com.airbnb.android:lottie:3.7.0'
 }
