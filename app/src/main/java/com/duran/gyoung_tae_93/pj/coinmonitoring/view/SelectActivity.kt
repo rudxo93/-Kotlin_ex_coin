@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.duran.gyoung_tae_93.pj.coinmonitoring.MainActivity
+import com.duran.gyoung_tae_93.pj.coinmonitoring.view.main.MainActivity
 import com.duran.gyoung_tae_93.pj.coinmonitoring.databinding.ActivitySelectBinding
 import com.duran.gyoung_tae_93.pj.coinmonitoring.view.adapter.SelectRVAdapter
 import timber.log.Timber

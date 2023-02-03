@@ -5,10 +5,14 @@
       <map>
         <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/drawable/ic_baseline_access_alarms_24.xml" value="0.2255" />
         <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/activity_intro.xml" value="0.22" />
+        <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/activity_main.xml" value="0.36770833333333336" />
         <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/activity_select.xml" value="0.2604166666666667" />
+        <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/fragment_coin_list.xml" value="0.36770833333333336" />
         <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/fragment_intro1.xml" value="0.2604166666666667" />
         <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/fragment_intro2.xml" value="0.246875" />
+        <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/fragment_price_change.xml" value="0.36770833333333336" />
         <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/layout/intro_coin_item.xml" value="0.36770833333333336" />
+        <entry key="..\:/android_workspace/Kotlin_ex_coin/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36770833333333336" />
       </map>
     </option>
   </component>

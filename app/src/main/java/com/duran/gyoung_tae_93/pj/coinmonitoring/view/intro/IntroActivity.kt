@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
-import com.duran.gyoung_tae_93.pj.coinmonitoring.MainActivity
+import com.duran.gyoung_tae_93.pj.coinmonitoring.view.main.MainActivity
 import com.duran.gyoung_tae_93.pj.coinmonitoring.databinding.ActivityIntroBinding
 import timber.log.Timber
 
